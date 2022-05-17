@@ -1,10 +1,11 @@
 export class CustomSet {
-  constructor(initial?: unknown) {
-    throw new Error('Remove this statement and implement this function')
+  initial: number[];
+  constructor(initial: number[] = []) {
+   this.initial = initial;
   }
 
-  empty(): unknown {
-    throw new Error('Remove this statement and implement this function')
+  empty(): boolean {
+    return this.initial.length === 0;
   }
 
   contains(element: unknown): unknown {
