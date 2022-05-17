@@ -38,8 +38,16 @@ export class CustomSet {
     return containedCount === 0;
   }
 
-  eql(other: unknown): unknown {
-    throw new Error('Remove this statement and implement this function')
+  eql(otherSet: CustomSet): boolean {
+    // has to have ALL the same elements in both
+    if (this.initial.length !== otherSet.initial.length) return false;
+    const failedCount = this.initial.reduce((total: number, thisSetNumber: number) => {
+      if (otherSet.initial.indexOf(thisSetNumber) === -1) {
+        total++;
+      }
+      return total;
+    }, 0)
+    return failedCount === 0;
   }
 
   union(other: unknown): CustomSet {
