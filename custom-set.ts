@@ -8,8 +8,8 @@ export class CustomSet {
     return this.initial.length === 0;
   }
 
-  contains(element: unknown): unknown {
-    throw new Error('Remove this statement and implement this function')
+  contains(element: number): boolean {
+    return this.initial.indexOf(element) !== -1;
   }
 
   add(element: unknown): CustomSet {
