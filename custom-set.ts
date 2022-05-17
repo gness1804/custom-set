@@ -12,8 +12,9 @@ export class CustomSet {
     return this.initial.indexOf(element) !== -1;
   }
 
-  add(element: unknown): CustomSet {
-    throw new Error('Remove this statement and implement this function')
+  add(input: number): CustomSet {
+    const modifiedInput = [...new Set([...this.initial, input])];
+    return new CustomSet(modifiedInput);
   }
 
   subset(otherSet: CustomSet): boolean {
