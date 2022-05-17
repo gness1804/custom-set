@@ -27,8 +27,15 @@ export class CustomSet {
     return failedCount === 0;
   }
 
-  disjoint(other: unknown): CustomSet {
-    throw new Error('Remove this statement and implement this function')
+  disjoint(otherSet: CustomSet): boolean {
+    // if the other set has NO elements of the original set
+    const containedCount = this.initial.reduce((total: number, thisSetNumber: number) => {
+      if (otherSet.initial.indexOf(thisSetNumber) !== -1) {
+        total++;
+      }
+      return total;
+    }, 0)
+    return containedCount === 0;
   }
 
   eql(other: unknown): unknown {
