@@ -55,8 +55,15 @@ export class CustomSet {
     throw new Error('Remove this statement and implement this function')
   }
 
-  intersection(other: unknown): CustomSet {
-    throw new Error('Remove this statement and implement this function')
+  intersection(otherSet: CustomSet): CustomSet {
+    // all elements shared between the two sets
+    const sharedItems = this.initial.reduce((acc: number[], thisSetNumber: number) => {
+      if (otherSet.initial.indexOf(thisSetNumber) !== -1) {
+        acc.push(thisSetNumber);
+      }
+      return acc;
+    }, [])
+    return new CustomSet(sharedItems);
   }
 
   difference(other: unknown): CustomSet {
