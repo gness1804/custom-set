@@ -66,7 +66,14 @@ export class CustomSet {
     return new CustomSet(sharedItems);
   }
 
-  difference(other: unknown): CustomSet {
-    throw new Error('Remove this statement and implement this function')
+  difference(otherSet: CustomSet): CustomSet {
+    // items that are only in the original set
+    const unsharedItems = this.initial.reduce((acc: number[], thisSetNumber: number) => {
+      if (otherSet.initial.indexOf(thisSetNumber) === -1) {
+        acc.push(thisSetNumber);
+      }
+      return acc;
+    }, [])
+    return new CustomSet(unsharedItems);
   }
 }
