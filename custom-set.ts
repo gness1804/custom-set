@@ -1,8 +1,5 @@
 export class CustomSet {
-  initial: number[];
-  constructor(initial: number[] = []) {
-    this.initial = initial;
-  }
+  constructor(private initial: number[] = []) { }
 
   empty(): boolean {
     return this.initial.length === 0;
@@ -53,8 +50,7 @@ export class CustomSet {
 
   union(otherSet: CustomSet): CustomSet {
     // all elements in either set
-    const totalArr = [...this.initial, ...otherSet.initial];
-    const uniq: number[] = [...new Set([...totalArr])]
+    const uniq: number[] = [...new Set([...this.initial, ...otherSet.initial])]
     return new CustomSet(uniq)
   }
 
