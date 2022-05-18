@@ -51,8 +51,11 @@ export class CustomSet {
     return failedCount === 0;
   }
 
-  union(other: unknown): CustomSet {
-    throw new Error('Remove this statement and implement this function')
+  union(otherSet: CustomSet): CustomSet {
+    // all elements in either set
+    const totalArr = [...this.initial, ...otherSet.initial];
+    const uniq: number[] = [...new Set([...totalArr])]
+    return new CustomSet(uniq)
   }
 
   intersection(otherSet: CustomSet): CustomSet {
